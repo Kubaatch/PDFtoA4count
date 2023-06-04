@@ -8,7 +8,7 @@ namespace PDFtoA4count
     {
         private double width;
         private double height;
-        private readonly double roundingNumber = 0.25;
+        private readonly double roundingNumber = 0.15;
         private int a4count;
 
         public Converter()
