@@ -1,18 +1,14 @@
 ﻿using System;
-using System.IO;
 using System.Windows.Forms;
-using Aspose.Pdf;
-using Aspose.Pdf.Structure;
-using Aspose.Pdf.Operators;
-using Aspose.Pdf.Facades;
+using WebSupergoo.ABCpdf12;
 
 namespace PDFtoA4count
 {
-    public partial class Converter : System.Windows.Forms.Form
+    public partial class Converter : Form
     {
         private double width;
         private double height;
-        private readonly double roundingNumber = 0.15;
+        private readonly double roundingNumber = 0.25;
         private int a4count;
 
         public Converter()
@@ -34,18 +30,14 @@ namespace PDFtoA4count
 
         private void FileOk(string fileName)
         {
-            PdfFileInfo pdfFileInfo = new PdfFileInfo(fileName);
+            Doc pdfFile = new Doc();
+            pdfFile.Read(fileName);
 
-            height = Convert.ToInt32(pdfFileInfo.GetPageHeight(1));
-            width = Convert.ToInt32(pdfFileInfo.GetPageWidth(1));
-            
-            if (openFileDialog1.FileNames.Length == 1)
-            {
-                L_PageSizePX.Visible = true;
-                L_PageSizePX.Text += "\nWidth = " + width;
-                L_PageSizePX.Text += "\nHeight = " + height;
-            }
-            
+            string[] coords = pdfFile.MediaBox.String.Split(' ');
+
+            width = Convert.ToDouble(coords[2]);
+            height = Convert.ToDouble(coords[3]);
+
             MathConversion();
 
             if (openFileDialog1.FileNames.Length == 1)
@@ -60,14 +52,15 @@ namespace PDFtoA4count
 
         private void MathConversion()
         {
-            width /= 2.833;
-            height /= 2.835;
+            // 72points = 1inch = 2,54cm
+            width = width / 72 * 25.4;
+            height = height / 72 * 25.4;
 
             width = Math.Round(width, 1, MidpointRounding.AwayFromZero);
             height = Math.Round(height, 1, MidpointRounding.AwayFromZero);
 
             double a4widths = width / 210;
-            double a4heights = width / 297;
+            double a4heights = height / 297;
 
             int a4widthsrounded = GetA4Number(a4widths);
             int a4heightsrounded = GetA4Number(a4heights);
@@ -91,15 +84,8 @@ namespace PDFtoA4count
             return output;
         }
 
-        private void B_ResetLabels_Click(object sender, EventArgs e)
-        {
-            ResetLabels();
-        }
-
         private void ResetLabels()
         {
-            L_PageSizePX.Visible = false;
-            L_PageSizePX.Text = "Page size in pixels: ";
             L_PageSizeMM.Visible = false;
             L_PageSizeMM.Text = "Page size in mm: ";
             L_A4Count.Text = "Total A4 Count: ";

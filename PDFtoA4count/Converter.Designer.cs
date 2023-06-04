@@ -31,11 +31,10 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.B_SelectFile = new System.Windows.Forms.Button();
             this.B_ExitApp = new System.Windows.Forms.Button();
-            this.L_PageSizePX = new System.Windows.Forms.Label();
             this.L_PageSizeMM = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.L_A4Count = new System.Windows.Forms.Label();
-            this.B_ResetLabels = new System.Windows.Forms.Button();
+            this.L_Note = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,21 +75,6 @@
             this.B_ExitApp.UseVisualStyleBackColor = true;
             this.B_ExitApp.Click += new System.EventHandler(this.B_ExitApp_Click);
             // 
-            // L_PageSizePX
-            // 
-            this.L_PageSizePX.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.L_PageSizePX.AutoSize = true;
-            this.L_PageSizePX.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.L_PageSizePX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.L_PageSizePX.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_PageSizePX.Location = new System.Drawing.Point(150, 490);
-            this.L_PageSizePX.Name = "L_PageSizePX";
-            this.tableLayoutPanel1.SetRowSpan(this.L_PageSizePX, 2);
-            this.L_PageSizePX.Size = new System.Drawing.Size(195, 29);
-            this.L_PageSizePX.TabIndex = 5;
-            this.L_PageSizePX.Text = "Page size in pixels: ";
-            this.L_PageSizePX.Visible = false;
-            // 
             // L_PageSizeMM
             // 
             this.L_PageSizeMM.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -109,17 +93,16 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 5;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel1.Controls.Add(this.B_SelectFile, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.B_ExitApp, 4, 7);
             this.tableLayoutPanel1.Controls.Add(this.L_A4Count, 3, 3);
-            this.tableLayoutPanel1.Controls.Add(this.L_PageSizePX, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.L_PageSizeMM, 3, 6);
-            this.tableLayoutPanel1.Controls.Add(this.B_ResetLabels, 4, 3);
+            this.tableLayoutPanel1.Controls.Add(this.L_Note, 1, 5);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -148,17 +131,14 @@
             this.L_A4Count.TabIndex = 9;
             this.L_A4Count.Text = "Total A4 Count: ";
             // 
-            // B_ResetLabels
+            // L_Note
             // 
-            this.B_ResetLabels.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.B_ResetLabels.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.B_ResetLabels.Location = new System.Drawing.Point(855, 222);
-            this.B_ResetLabels.Name = "B_ResetLabels";
-            this.B_ResetLabels.Size = new System.Drawing.Size(124, 59);
-            this.B_ResetLabels.TabIndex = 10;
-            this.B_ResetLabels.Text = "RESET everything";
-            this.B_ResetLabels.UseVisualStyleBackColor = true;
-            this.B_ResetLabels.Click += new System.EventHandler(this.B_ResetLabels_Click);
+            this.L_Note.AutoSize = true;
+            this.L_Note.Location = new System.Drawing.Point(140, 360);
+            this.L_Note.Name = "L_Note";
+            this.L_Note.Size = new System.Drawing.Size(270, 16);
+            this.L_Note.TabIndex = 11;
+            this.L_Note.Text = "A4 count is reset when new files are selected";
             // 
             // Converter
             // 
@@ -181,11 +161,10 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button B_SelectFile;
         private System.Windows.Forms.Button B_ExitApp;
-        private System.Windows.Forms.Label L_PageSizePX;
         private System.Windows.Forms.Label L_PageSizeMM;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label L_A4Count;
-        private System.Windows.Forms.Button B_ResetLabels;
+        private System.Windows.Forms.Label L_Note;
     }
 }
 
