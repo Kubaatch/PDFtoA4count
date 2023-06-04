@@ -62,13 +62,13 @@ namespace PDFtoA4count
             double a4widths = width / 210;
             double a4heights = height / 297;
 
-            int a4widthsrounded = GetA4Number(a4widths);
-            int a4heightsrounded = GetA4Number(a4heights);
+            int a4widthsrounded = RoundEdges(a4widths);
+            int a4heightsrounded = RoundEdges(a4heights);
 
             a4count += a4heightsrounded * a4widthsrounded;
         }
 
-        private int GetA4Number(double input)
+        private int RoundEdges(double input)
         {
             int output;
 
