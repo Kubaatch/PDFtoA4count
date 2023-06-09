@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
-using WebSupergoo.ABCpdf12;
+using Aspose;
+using Aspose.Pdf;
+using Aspose.Pdf.Facades;
+using Form = System.Windows.Forms.Form;
 
 namespace PDFtoA4count
 {
@@ -30,18 +33,15 @@ namespace PDFtoA4count
 
         private void FileOk(string fileName)
         {
-            Doc pdfFile = new Doc();
-            pdfFile.Read(fileName);
+            PdfFileInfo pdfFileInfo = new PdfFileInfo(fileName);
 
-            string[] coords = pdfFile.MediaBox.String.Split(' ');
-
-            width = Convert.ToDouble(coords[2]);
-            height = Convert.ToDouble(coords[3]);
+            height = Convert.ToInt32(pdfFileInfo.GetPageHeight(1));
+            width = Convert.ToInt32(pdfFileInfo.GetPageWidth(1));
 
             MathConversion();
 
             if (openFileDialog1.FileNames.Length == 1)
-            { 
+            {
                 L_PageSizeMM.Visible = true;
                 L_PageSizeMM.Text += "\nWidth = " + width;
                 L_PageSizeMM.Text += "\nHeight = " + height;
