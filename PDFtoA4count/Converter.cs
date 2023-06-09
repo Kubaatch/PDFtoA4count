@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using Aspose;
-using Aspose.Pdf;
 using Aspose.Pdf.Facades;
 using Form = System.Windows.Forms.Form;
 
